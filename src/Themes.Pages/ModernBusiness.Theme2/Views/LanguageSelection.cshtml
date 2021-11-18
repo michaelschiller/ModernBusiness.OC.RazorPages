@@ -12,7 +12,8 @@
 
 @{
     var requestCulture = Context.Features.Get<IRequestCultureFeature>();
-    var cultureItems = settings.SupportedCultures.Select(i => new SelectListItem { Value = i, Text = CultureInfo.GetCultureInfo(i).NativeName }).ToList();
+    var supportedCultures = settings.Properties["LocalizationSettings"]["SupportedCultures"];
+    var cultureItems = supportedCultures.Select(i => new SelectListItem { Value = (string)i, Text = CultureInfo.GetCultureInfo((string)i).NativeName }).ToList();
 }
 
 
