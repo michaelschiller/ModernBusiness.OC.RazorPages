@@ -1,11 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <AssemblyName>ModernBusiness.Theme</AssemblyName>
         <RootNamespace>ModernBusiness.Theme</RootNamespace>
-    </PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DefineConstants>TRACE</DefineConstants>
@@ -15,30 +18,8 @@
         <EmbeddedResource Remove="NuGet.config" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-      <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
-        <PackageReference Include="OrchardCore.Contents" Version="1.0.0-beta3-71165" />
-        <PackageReference Include="OrchardCore.Menu" Version="1.0.0-beta3-71165" />
-        <PackageReference Include="OrchardCore.Theme.Targets" Version="1.0.0-beta3-71165" />
-        <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-71165" />
-        <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-71165" />
-        <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-beta3-71165" />
-    </ItemGroup>
-
-    <!--<ItemGroup>
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.About\ModernBusiness.Pages.About.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Blog\ModernBusiness.Pages.Blog.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Contact\ModernBusiness.Pages.Contact.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Faq\ModernBusiness.Pages.Faq.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Portfolio\ModernBusiness.Pages.Portfolio.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.PricePlan\ModernBusiness.Pages.PricePlan.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Service\ModernBusiness.Pages.Service.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Shared\ModernBusiness.Pages.Shared.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Static\ModernBusiness.Pages.Static.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages.Users\ModernBusiness.Pages.Users.csproj" />
-        <ProjectReference Include="..\..\Modules.Pages\ModernBusiness.Pages\ModernBusiness.Pages.csproj" />
-        <ProjectReference Include="..\..\OrchardCore.Parts\TagPart\Tags.OrchardCore.csproj" />
-    </ItemGroup>-->
-
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Application.Cms.Core.Targets" Version="1.1.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.1.0" />
+	</ItemGroup>
 </Project>
