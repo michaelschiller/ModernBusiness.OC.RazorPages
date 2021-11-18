@@ -1,8 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using OrchardCore.ContentManagement.Metadata.Models;
 using OrchardCore.ContentTypes.Editors;
 using OrchardCore.DisplayManagement.Views;
+using System;
+using System.Threading.Tasks;
 using Tags.OrchardCore.Models;
 
 namespace Tags.OrchardCore.Settings
@@ -20,11 +20,11 @@ namespace Tags.OrchardCore.Settings
             {
                 var settings = contentPartDefinition.GetSettings<TagsPartSettings>();
 
-				model.Required = settings.Required;
-				model.Multiple = settings.Multiple;
+                model.Required = settings.Required;
+                model.Multiple = settings.Multiple;
                 model.TagsPartSettings = settings;
 
-                return Task.CompletedTask;
+                return default(ValueTask);
             }).Location("Content");
         }
 
@@ -37,13 +37,13 @@ namespace Tags.OrchardCore.Settings
 
             var model = new TagsPartSettingsViewModel();
 
-            if (await context.Updater.TryUpdateModelAsync(model, Prefix, m => m.Multiple, m => m.Required ))
+            if (await context.Updater.TryUpdateModelAsync(model, Prefix, m => m.Multiple, m => m.Required))
             {
                 context.Builder.WithSettings(new TagsPartSettings
-				{
-					Required = model.Required,
-					Multiple = model.Multiple
-				});
+                {
+                    Required = model.Required,
+                    Multiple = model.Multiple
+                });
             }
 
             return Edit(contentPartDefinition, context.Updater);
